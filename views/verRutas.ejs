@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    
+    
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Gas Unión Administrador</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="/css/font-face.css" rel="stylesheet" media="all">
+    <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+    <!-- Main CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.css">
+    <link href="/css/theme.css" rel="stylesheet" media="all">
+
+    <style>
+        .adminPENDIENTE {
+            background-color: white;
+            
+        }
+        
+        .adminASIGNADO {
+            background-color: rgb(116, 176, 250);
+        
+        }
+        .adminCOMPLETADO {
+            background-color: rgb(32, 167, 32);
+            
+        }
+        .adminCANCELADO {
+            background-color: red;
+            
+        }
+        .adminREAGENDADO {
+            background-color:yellow;
+            
+        }
+        .adminPARCIAL{
+            background-color: rgb(235, 134, 235);
+        }
+        .titulo{
+            background-color: gray;
+        }
+        
+    </style>
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop3 d-none d-lg-block">
+            <div class="section__content section__content--p35">
+                <div class="header3-wrap">
+                    <div class="header__logo">
+                    <% if (datos.rol === 'ADMINISTRADOR') { %>
+                        <a href="/indexadmin">
+                    <% } else if (datos.rol === 'SUPERVISOR') { %>
+                        <a href="/indexsup"> 
+                    <% } else if (datos.rol === 'COORDINADOR') { %>
+                        <a href="/indexcor"> 
+                    <% } else if (datos.rol === 'OPERADOR') { %>
+                        <a href="/indexoper"> 
+                    <% }  %>
+                        <div class="logo-container">
+                            <img src="/images/icon/Logo1.png" alt="GasUnion" style="height: 60px;" />
+                        </div>
+                    
+                </a>
+            </div>
+                        
+                    
+                    <div class="header__tool">
+                        
+                        
+                        <div class="account-wrap">
+                            <div class="account-item account-item--style2 clearfix js-item-menu">
+                                <div class="image">
+                                    <a href="#">
+                                        <img src="/images/icon/usuario.png" alt="John Doe" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <a class="js-acc-btn" href="#"><%= datos.nombre %></a>
+                                </div>
+                                <div class="account-dropdown js-dropdown">
+                                    <div class="info clearfix">
+                                        <div class="image">
+                                            <a href="#">
+                                                <img src="/images/icon/usuario.png" alt="John Doe" />
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <h5 class="name">
+                                                <a href="#"><%= datos.nombre %></a>
+                                            </h5>
+                                            <span class="email"><%= datos.rol %></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="account-dropdown__footer">
+                                        <a href="/logout">
+                                            <i class="zmdi zmdi-power"></i>Cerrar Sesión</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- END HEADER DESKTOP-->
+
+        <!-- HEADER MOBILE-->
+        <% if (datos.rol === 'ADMINISTRADOR') { %>
+            <header class="header-mobile header-mobile-2 d-block d-lg-none">
+                <div class="header-mobile__bar">
+                    <div class="container-fluid">
+                        <div class="header-mobile-inner">
+                            <a class="logo" href="/indexadmin">
+                                <img src="/images/icon/Logo1.png" alt="GasUnion" style="height: 50px;" />
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+                
+    
+            
+        <% } else if (datos.rol === 'SUPERVISOR') { %>
+            <header class="header-mobile header-mobile-2 d-block d-lg-none">
+                <div class="header-mobile__bar">
+                    <div class="container-fluid">
+                        <div class="header-mobile-inner">
+                            <a class="logo" href="/indexsup">
+                                <img src="/images/icon/Logo1.png" alt="GasUnion" style="height: 50px;" />
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <% } else if (datos.rol === 'COORDINADOR') { %>
+                    <header class="header-mobile header-mobile-2 d-block d-lg-none">
+                        <div class="header-mobile__bar">
+                            <div class="container-fluid">
+                                <div class="header-mobile-inner">
+                                    <a class="logo" href="/indexcor">
+                                        <img src="/images/icon/Logo1.png" alt="GasUnion" style="height: 50px;" />
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                <% } else if (datos.rol === 'OPERADOR') { %>
+                    <header class="header-mobile header-mobile-2 d-block d-lg-none">
+                        <div class="header-mobile__bar">
+                            <div class="container-fluid">
+                                <div class="header-mobile-inner">
+                                    <a class="logo" href="/indexoper">
+                                        <img src="/images/icon/Logo1.png" alt="GasUnion" style="height: 50px;" />
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                <% } %>
+                
+            </header>
+            <div class="sub-header-mobile-2 d-block d-lg-none">
+                <div class="header__tool">
+                    
+                    <div class="account-wrap">
+                        <div class="account-item account-item--style2 clearfix js-item-menu">
+                            <div class="image">
+                                <img src="/images/icon/usuario.png" alt="John Doe" />
+                            </div>
+                            <div class="content">
+                                <a class="js-acc-btn" href="#"><%= datos.nombre %></a>
+                            </div>
+                            <div class="account-dropdown js-dropdown">
+                                <div class="info clearfix">
+                                    <div class="image">
+                                        <a href="#">
+                                            <img src="/images/icon/usuario.png" alt="John Doe" />
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h5 class="name">
+                                            <a href="#"><%= datos.nombre %></a>
+                                        </h5>
+                                        <span class="email"><%= datos.rol %></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="account-dropdown__footer">
+                                    <a href="/logout">
+                                        <i class="zmdi zmdi-power"></i>Cerrar Sesión</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+    
+        
+        <!-- END HEADER MOBILE -->
+        <!-- PAGE CONTENT-->
+        <div class="page-content--bgf7">
+            
+
+            
+
+            
+
+            <!-- DATA TABLE -->
+            <section class="p-t-20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-5 m-b-35"></h3>
+                            <div class="form-group">
+                                
+
+                                <% if (datos.rol === 'ADMINISTRADOR') { %>
+                                    <button class="btn btn-lg btn-success" data-toggle="tooltip" data-placement="top" title="Guardar" onclick="enviarPorWhatsApp()">
+                                        Envio WhatsApp
+                                    </button>
+                                <% } else if (datos.rol === 'SUPERVISOR') { %>
+                                    <button class="btn btn-lg btn-success" data-toggle="tooltip" data-placement="top" title="Guardar" onclick="enviarPorWhatsApp()">
+                                        Envio WhatsApp
+                                    </button>
+                                <% } else if (datos.rol === 'COORDINADOR') { %>
+                                    <button class="btn btn-lg btn-success" data-toggle="tooltip" data-placement="top" title="Guardar" onclick="enviarPorWhatsApp()">
+                                        Envio WhatsApp
+                                    </button>
+                                <% } else if (datos.rol === 'OPERADOR') { %>
+                                <% } %>
+                               
+                                
+                                
+                                
+                                <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Buscar...">
+                               
+                            </div>
+                            <div class="table-responsive table-responsive-data2">
+                                <table style=" border: 1px solid black;" class="table table-data2" id="administracion">
+                                    <h3 class="title-5 m-b-35" style="font-size: 25px;">Rutas Administración</h3>
+                                    <thead>
+                                        <tr class="titulo">
+                                            
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">No. Cliente</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Nombre Cliente</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Codigo Postal</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Municipio / Delegación</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Colonia</th>
+                                            
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Unidad Asignada</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Observaciones</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Estatus Servicio</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="spacer"></tr>
+                                        <tr class="tr-shadow">
+                                            <% results.forEach((adminService)=>{ %>
+                                                <tr class="<%= 'admin' + adminService.statusServicio %>"> 
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;">*<%= adminService.noCliente %>*   </td>  
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;"><%= adminService.nombreCliente %> </td>
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;">*<%= adminService.cp %>*  </td>
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;"><%= adminService.municipio %> </td>
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;">*<%= adminService.colonia %>* </td>
+                                                    
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;"><%= adminService.unidadAsignada %>   </td>
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;"><%= adminService.observaciones %>   </td>
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;">*<%= adminService.statusServicio %>*  </td>
+                                                    
+                                                    
+                                                    <% if (adminService.statusServicio === 'PENDIENTE') { %>
+                                                        <td style="font-size: 12px; border: 1px solid #333; color: white;">
+                                                            <div class="table-data-feature">
+                                                                <select class="custom-select" id="selectOption_<%= adminService.noCliente %>">
+                                                                    <option value="" disabled selected>Selecciona una opción</option>
+                                                                    <% unidades.forEach((noEco) => { %>
+                                                                        <option><%=  noEco %></option>
+                                                                      <% }); %>
+                                                                    <!-- Agrega más opciones según tus necesidades -->
+                                                                </select>
+                                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Guardar" onclick="guardarSeleccion(<%= adminService.noCliente %>)">
+                                                                    <i class="zmdi zmdi-check"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    <% } else if (adminService.statusServicio === 'EXTRA') { %>
+                                                        <td style="font-size: 12px; border: 1px solid #333; color: white;">
+                                                            <div class="table-data-feature">
+                                                                <select class="custom-select" id="selectOption_<%= adminService.noCliente %>">
+                                                                    <option value="" disabled selected>Selecciona una opción</option>
+                                                                    <% unidades.forEach((noEco) => { %>
+                                                                        <option><%=  noEco %></option>
+                                                                      <% }); %>
+                                                                    <!-- Agrega más opciones según tus necesidades -->
+                                                                </select>
+                                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Guardar" onclick="guardarSeleccion(<%= adminService.noCliente %>)">
+                                                                    <i class="zmdi zmdi-check"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    <% } else if (adminService.statusServicio === 'ASIGNADO') { %>
+                                                        <td style="font-size: 12px; border: 1px solid #333; color: white;">
+                                                            <div class="table-data-feature">
+                                                                <!-- Botón para marcar entrega completada -->
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Entrega Completada" onclick="entregaCompletada(<%= adminService.noCliente %>)">
+                                                            <i class="zmdi zmdi-check"></i>
+                                                        </button>
+
+                                                        <!-- Botón para reagendar -->
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Reagendar" onclick="reagendar(<%= adminService.noCliente %>)">
+                                                            <i class="zmdi zmdi-calendar"></i>
+                                                        </button>
+
+                                                         <!-- Botón para Parcial -->
+                                                         <button  class="item" data-toggle="tooltip" data-placement="top" title="Parcial" onclick="parcial(<%= adminService.noCliente %>)">
+                                                            <i class="zmdi zmdi-bookmark"></i>
+                                                        </button>
+
+                                                        <!-- Botón para cancelar -->
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Cancelar" onclick="mostrarMotivoCancelacion(<%= adminService.noCliente %>)">
+                                                            <i class="zmdi zmdi-close"></i>
+                                                        </button>
+
+                                                        <!-- Select para motivo de cancelación (inicialmente oculto) -->
+                                                        <select class="custom-select" id="motivoCancelacion_<%= adminService.noCliente %>" style="display: none;">
+                                                            <option>SIN RESPUESTA</option>
+                                                            <option>FUERA DE HORARIO</option>
+                                                            <option>OTRO</option>
+                                                            <!-- Agrega más motivos según tus necesidades -->
+                                                        </select>
+
+                                                        <!-- Botón para confirmar cancelación (inicialmente oculto) -->
+                                                        <button class="item" id="confirmarCancelacion_<%= adminService.noCliente %>" data-toggle="tooltip" data-placement="top" title="Confirmar Cancelación" onclick="confirmarCancelacion(<%= adminService.noCliente %>)" style="display: none;">
+                                                            <i class="zmdi zmdi-check"></i>
+                                                        </button>
+                                                            </div>
+                                                        </td>
+                                                        
+                                                    <% } else if (adminService.statusServicio === 'COMPLETADO') { %>
+                                                        <td style="font-size: 12px; border: 1px solid #333; color: white;">
+                                                            <div class="table-data-feature">
+                                                                <p>SERVICIO COMPLETADO</p>
+                                                            </div>
+                                                        </td>
+                                                    <% } else if (adminService.statusServicio === 'CANCELADO') { %>
+                                                        <td style="font-size: 14px;border: 1px solid #333; color: white;"><%= adminService.observaciones %></td>
+                                                    <% } else if (adminService.statusServicio === 'REAGENDADO') { %>
+                                                        <td style="font-size: 12px; border: 1px solid #333; color: white;">
+                                                            <div class="table-data-feature">
+                                                                <input type="DATE" id="datepicker_<%= adminService.noCliente %>" placeholder="Selecciona una fecha">
+                                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Confirmar Fecha" onclick="confirmarReagendamiento(<%= adminService.noCliente %>)">
+                                                                    <i class="zmdi zmdi-check"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    <% } else if (adminService.statusServicio === 'PARCIAL') { %>
+                                                    <% } else { %>
+                                                        <!-- Agregar otras acciones según sea necesario -->
+                                                    <% } %>
+                                                    
+                                                    
+                                                </tr>                                   
+                                             <% }) %>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table style=" border: 1px solid black;" class="table table-data2" id="suministros">
+                                    <h3 class="title-5 m-b-35" style="font-size: 25px;">Rutas Suministros</h3>
+                                    <thead>
+                                        <tr class="titulo">
+                                            
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">No. Cliente</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Nombre Cliente</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Codigo Postal</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Municipio / Delegación</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Colonia</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Unidad Asignada</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Observaciones</th>
+                                            
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Estatus Servicio</th>
+                                            <th style="font-size: 16px;border: 1px solid #333; color:white;">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="spacer"></tr>
+                                        <tr class="tr-shadow">
+                                            <% results3.forEach((adminService)=>{ %>
+                                                <tr class="<%= 'admin' + adminService.statusServicio %>"> 
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;">*<%= adminService.noCliente %>*   </td>  
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;"><%= adminService.nombreCliente %> </td>
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;">*<%= adminService.cp %>*  </td>
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;"><%= adminService.municipio %> </td>
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;">*<%= adminService.colonia %>* </td>
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;"><%= adminService.unidadCarga %>   </td>
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;">*<%= adminService.observaciones %>* </td>
+                                                    
+                                                    <td style="font-size: 14px;border: 1px solid #333; color: black;">*<%= adminService.statusServicio %>*  </td>
+                                                    
+                                                    
+                                                    <% if (adminService.statusServicio === 'PENDIENTE') { %>
+                                                        <td style="font-size: 12px; border: 1px solid #333; color: white;">
+                                                            <div class="table-data-feature">
+                                                                <select class="custom-select" id="selectOption_<%= adminService.noCliente %>">
+                                                                    <option value="" disabled selected>Selecciona una opción</option>
+                                                                    <% unidades.forEach((noEco) => { %>
+                                                                        <option><%=  noEco %></option>
+                                                                      <% }); %>
+                                                                    <!-- Agrega más opciones según tus necesidades -->
+                                                                </select>
+                                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Guardar" onclick="guardarSeleccion(<%= adminService.noCliente %>)">
+                                                                    <i class="zmdi zmdi-check"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    <% } else if (adminService.statusServicio === 'EXTRA') { %>
+                                                        <td style="font-size: 12px; border: 1px solid #333; color: white;">
+                                                            <div class="table-data-feature">
+                                                                <select class="custom-select" id="selectOption_<%= adminService.noCliente %>">
+                                                                    <option value="" disabled selected>Selecciona una opción</option>
+                                                                    <% unidades.forEach((noEco) => { %>
+                                                                        <option><%=  noEco %></option>
+                                                                      <% }); %>
+                                                                    <!-- Agrega más opciones según tus necesidades -->
+                                                                </select>
+                                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Guardar" onclick="guardarSeleccion(<%= adminService.noCliente %>)">
+                                                                    <i class="zmdi zmdi-check"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    <% } else if (adminService.statusServicio === 'ASIGNADO') { %>
+                                                        <td style="font-size: 12px; border: 1px solid #333; color: white;">
+                                                            <div class="table-data-feature">
+                                                                <!-- Botón para marcar entrega completada -->
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Entrega Completada" onclick="entregaCompletada(<%= adminService.noCliente %>)">
+                                                            <i class="zmdi zmdi-check"></i>
+                                                        </button>
+
+                                                        <!-- Botón para reagendar -->
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Reagendar" onclick="reagendar(<%= adminService.noCliente %>)">
+                                                            <i class="zmdi zmdi-calendar"></i>
+                                                        </button>
+
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Parcial" onclick="parcial(<%= adminService.noCliente %>)">
+                                                            <i class="zmdi zmdi-bookmark"></i>
+                                                        </button>
+
+                                                        <!-- Botón para cancelar -->
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Cancelar" onclick="mostrarMotivoCancelacion(<%= adminService.noCliente %>)">
+                                                            <i class="zmdi zmdi-close"></i>
+                                                        </button>
+
+                                                        <!-- Select para motivo de cancelación (inicialmente oculto) -->
+                                                        <select class="custom-select" id="motivoCancelacion_<%= adminService.noCliente %>" style="display: none;">
+                                                            <option>SIN RESPUESTA</option>
+                                                            <option>NO REQUIEREN SERVICIO</option>
+                                                            <option>OTRA</option>
+                                                            <!-- Agrega más motivos según tus necesidades -->
+                                                        </select>
+
+                                                        <!-- Botón para confirmar cancelación (inicialmente oculto) -->
+                                                        <button class="item" id="confirmarCancelacion_<%= adminService.noCliente %>" data-toggle="tooltip" data-placement="top" title="Confirmar Cancelación" onclick="confirmarCancelacion(<%= adminService.noCliente %>)" style="display: none;">
+                                                            <i class="zmdi zmdi-check"></i>
+                                                        </button>
+                                                            </div>
+                                                        </td>
+                                                        
+                                                    <% } else if (adminService.statusServicio === 'COMPLETADO') { %>
+                                                        <td style="font-size: 12px; border: 1px solid #333; color: white;">
+                                                            <div class="table-data-feature">
+                                                                <p>SERVICIO COMPLETADO</p>
+                                                            </div>
+                                                        </td>
+                                                    <% } else if (adminService.statusServicio === 'CANCELADO') { %>
+                                                        <td style="font-size: 14px;border: 1px solid #333; color: white;"><%= adminService.observaciones %></td>
+                                                    <% } else if (adminService.statusServicio === 'REAGENDADO') { %>
+                                                        <td style="font-size: 12px; border: 1px solid #333; color: white;">
+                                                            <div class="table-data-feature">
+                                                                <input type="DATE" id="datepicker_<%= adminService.noCliente %>" placeholder="Selecciona una fecha">
+                                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Confirmar Fecha" onclick="confirmarReagendamiento(<%= adminService.noCliente %>)">
+                                                                    <i class="zmdi zmdi-check"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    <% } else if (adminService.statusServicio === 'PARCIAL') { %>
+                                                    <% } else { %>
+                                                        <!-- Agregar otras acciones según sea necesario -->
+                                                    <% } %>
+                                                    
+                                                    
+                                                </tr>                                   
+                                             <% }) %>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END DATA TABLE-->
+            
+
+           
+        </div>
+
+    </div>
+
+    <script>
+
+        function enviarPorWhatsApp() {
+            // Obtén el contenido de las tablas
+            const administracionTable = obtenerContenidoTabla('administracion', '*Administración*');
+            const suministrosTable = obtenerContenidoTabla('suministros', '*Suministros*');
+
+            const administracionTableEspacios = administracionTable.replace(/\|/g, ' ');
+            const suministrosTableEspacios = suministrosTable.replace(/\|/g, ' ');
+        
+            // Construye el mensaje en formato de texto plano
+            const mensaje = `¡Reporte de rutas!\n\n${administracionTable}\n\n\n${suministrosTable}`;
+
+        
+            // Codifica el mensaje para incluirlo en el enlace de WhatsApp
+            const mensajeCodificado = encodeURIComponent(mensaje);
+        
+            // Crea el enlace de WhatsApp
+            const link = `https://wa.me/5613350772?text=${mensajeCodificado}`;
+        
+            // Abre la ventana de WhatsApp
+            window.open(link, '_blank');
+        }
+        
+        function obtenerContenidoTabla(tableId, titulo) {
+            const table = document.getElementById(tableId);
+            const filas = table.querySelectorAll('tbody tr');
+        
+            // Crea el contenido con el formato deseado
+            const contenido = `${titulo}:\n\n${filas.length > 0 ? '' : 'Vacío\n'}`;
+        
+            const filasContenido = Array.from(filas)
+                .map(fila => Array.from(fila.children)
+                    .map(td => td.innerText.trim().replace(/\s+/g, ' ')) // Elimina espacios adicionales
+                    .join('\t'))
+                .join('\n\n');
+        
+            return `${contenido}${filasContenido}\n\n`;
+        }
+        
+        
+        
+        
+        function mostrarMotivoCancelacion(noCliente) {
+            // Oculta todos los selects y botones de confirmación
+            ocultarTodosLosMotivos();
+        
+            // Muestra el select específico para el noCliente actual
+            document.getElementById(`motivoCancelacion_${noCliente}`).style.display = 'block';
+        
+            // Muestra el botón de confirmar cancelación correspondiente
+            document.getElementById(`confirmarCancelacion_${noCliente}`).style.display = 'block';
+        }
+        
+        function ocultarTodosLosMotivos() {
+            // Oculta todos los selects y botones de confirmación
+            const selects = document.querySelectorAll('[id^="motivoCancelacion_"]');
+            selects.forEach(select => {
+                select.style.display = 'none';
+            });
+        
+            const botonesConfirmacion = document.querySelectorAll('[id^="confirmarCancelacion_"]');
+            botonesConfirmacion.forEach(boton => {
+                boton.style.display = 'none';
+            });
+        }
+        
+        function confirmarCancelacion(noCliente) {
+            const motivoSeleccionado = document.getElementById(`motivoCancelacion_${noCliente}`).value;
+
+            if(!motivoSeleccionado){
+                alert('SELECCIONA UNA OPCION ANTES DE GUARDAR')
+                return
+            }
+
+            $.post('/marcarCancelacion', {noCliente:noCliente, motivoSeleccionado:motivoSeleccionado}, function(data){
+                if(data.success){
+                    window.location.reload();
+                } else {
+                    window.location.reload();
+                }
+            })
+        
+            
+        }
+
+        function entregaCompletada(noCliente)
+        {
+            $.post('/marcarCompletada', {noCliente:noCliente}, function(data){
+                if(data.success){
+                    window.location.reload();
+                } else {
+                    window.location.reload();
+                }
+            })
+        }
+
+        function reagendar(noCliente)
+        {
+            $.post('/marcarReagendar', {noCliente:noCliente}, function(data){
+                if(data.success){
+                    window.location.reload();
+                } else {
+                    window.location.reload();
+                }
+            })
+        }
+        
+        function confirmarReagendamiento(noCliente){
+            const fechaReagendar = document.getElementById(`datepicker_${noCliente}`).value;
+            if(!fechaReagendar){
+                alert('MARCA UNA FECHA VALIDA');
+                return
+            }
+
+            $.post('/confirmaReagenda', {noCliente:noCliente, fechaReagendar:fechaReagendar}, function(data){
+                if(data.success){
+                    window.location.reload();
+                } else {
+                    window.location.reload();
+                }
+            })
+
+        }
+
+        function guardarSeleccion(noCliente) {
+            const selectedOption = document.getElementById(`selectOption_${noCliente}`).value;
+        
+            if (!selectedOption) {
+                alert('Selecciona una opción antes de guardar.');
+                return;
+            }
+        
+            // Realizar una solicitud AJAX al servidor (Node.js) para guardar la opción en la base de datos
+            $.post('/updateAdminService', { noCliente: noCliente, selectedOption: selectedOption }, function(data) {
+                if (data.success) {
+                    window.location.reload();
+                } else {
+                   window.location.reload();
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            // Inicializar el datepicker para cada campo de fecha
+            $(".datepicker").datepicker({
+                format: 'yyyy-mm-dd', // Formato de fecha deseado
+                autoclose: true
+            });
+        });
+
+        function guardarSeleccion2(noCliente){
+            const selected = document.getElementById(`selected_${noCliente}`).value;
+
+            if(!selected){
+                alert('selecciona ruta antes de guardar');
+                return;
+            }
+
+            $.post('/updateSumService', { noCliente: noCliente, selected: selected }, function(data) {
+                if (data.success) {
+                    window.location.reload();
+                } else {
+                   window.location.reload();
+                }
+            });
+
+        }
+        
+    </script>
+    
+
+    <!-- Jquery JS-->
+    <script src="/vendor/jquery-3.2.1.min.js"></script>
+    
+    <!-- Bootstrap JS-->
+    <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="/vendor/slick/slick.min.js">
+    </script>
+    <script src="/vendor/wow/wow.min.js"></script>
+    <script src="/vendor/animsition/animsition.min.js"></script>
+    <script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="/vendor/select2/select2.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.js"></script>
+
+
+    <!-- Main JS-->
+    <script src="/js/main.js"></script>
+
+    <!-- Main JS-->
+    <script>
+        function confirmar(id){
+            Swal.fire({
+              title: 'Confirma eliminar el registro: '+id+' ?',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Confirmar',
+            }).then((result) => {
+              
+              if (result.isConfirmed) {
+                window.location = '/deleteClientAdministracion/'+id;
+              } 
+            })
+          }
+    
+        $(document).ready(function(){
+            $("#search").keyup(function(){
+                _this = this;
+                const searchValue = $(_this).val().toLowerCase();
+    
+                $.each($("#administracion tbody tr"), function() {
+                    
+                    const unidad = $(this).find("td:nth-child(6)").text().toLowerCase();
+    
+                    if (
+                        unidad.indexOf(searchValue) === -1) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            });
+        });
+        $(document).ready(function(){
+            $("#search").keyup(function(){
+                _this = this;
+                const searchValue = $(_this).val().toLowerCase();
+    
+                $.each($("#suministros tbody tr"), function() {
+                    
+                    const unidad = $(this).find("td:nth-child(6)").text().toLowerCase();
+    
+                    if (
+                        unidad.indexOf(searchValue) === -1) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
+<!-- end document-->
